@@ -25,17 +25,14 @@ public class DataGenerator {
     }
 
     private static String getLowerMonthValue() {
-
         return "00";
     }
 
     private static String getGreaterMonthValue() {
-
         return "13";
     }
 
     private static String getValidMonth() {
-
         return LocalDate.now().format(DateTimeFormatter.ofPattern("MM"));
     }
 
@@ -52,7 +49,6 @@ public class DataGenerator {
     }
 
     private static String getValidYear() {
-
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yy"));
     }
 
@@ -75,7 +71,7 @@ public class DataGenerator {
         Random random = new Random();
         var fistNumber = numbers[random.nextInt(10)];
         var secondNumber = numbers[random.nextInt(9) + 1];
-        //Равноценно int диапазону [01;100]:
+        //Равноценно int диапазону [01;100):
         return fistNumber + secondNumber;
     }
 
@@ -88,7 +84,7 @@ public class DataGenerator {
         Random random = new Random();
         var firstNumber = numbers[random.nextInt(10)];
         var secondNumber = getNumbers();
-        //Равноценно int диапазону [001;1000]:
+        //Равноценно int диапазону [001;1000):
         return firstNumber + secondNumber;
     }
 
