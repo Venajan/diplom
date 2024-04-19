@@ -3,7 +3,7 @@ package ru.netology.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataGenerator;
-
+import java.time.Duration;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -202,11 +202,11 @@ public class PurchasePage {
 
     public void bankApproved() {
 
-        notificationSuccessfully.shouldBe(Condition.visible);
+        notificationSuccessfully.shouldBe(Condition.visible, Duration.ofSeconds(10));
     }
 
     public void bankDeclined() {
 
-        notificationError.shouldBe(Condition.visible);
+        notificationError.shouldBe(Condition.visible, Duration.ofSeconds(10));
     }
 }

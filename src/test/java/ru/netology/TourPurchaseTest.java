@@ -2,7 +2,7 @@ package ru.netology;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import lombok.SneakyThrows;
+//import lombok.SneakyThrows;
 import org.junit.jupiter.api.*;
 import ru.netology.page.PurchasePage;
 
@@ -28,18 +28,18 @@ public class TourPurchaseTest {
         open("http://localhost:8080");
     }
 
-    @AfterAll
-    public static void tearDownAll() {
-        SelenideLogger.removeListener("allure");
-        databaseCleanUp();
-    }
+    //@AfterAll
+    //public static void tearDownAll() {
+    //    SelenideLogger.removeListener("allure");
+    //    databaseCleanUp();
+    //}
 
     @Nested
     //Тесты на оплату и получения кредита по валидной карте:
     public class ValidCard {
 
         @Test
-        @SneakyThrows
+        //@SneakyThrows
         @DisplayName("Покупка валидной картой")
         public void shouldPaymentValidCard() {
             var purchasePage = new PurchasePage();
@@ -47,7 +47,7 @@ public class TourPurchaseTest {
             var info = getApprovedCard();
             purchasePage.sendingData(info);
             //Время отправки данных в базу данных, в секундах:
-            TimeUnit.SECONDS.sleep(10);
+            //TimeUnit.SECONDS.sleep(10);
             var expected = "APPROVED";
             var paymentInfo = getPaymentInfo();
             var orderInfo = getOrderInfo();
@@ -60,7 +60,7 @@ public class TourPurchaseTest {
         }
 
         @Test
-        @SneakyThrows
+        //@SneakyThrows
         @DisplayName("Получение кредита на покупку по валидной карте")
         public void shouldCreditValidCard() {
             var purchasePage = new PurchasePage();
@@ -68,7 +68,7 @@ public class TourPurchaseTest {
             var info = getApprovedCard();
             purchasePage.sendingData(info);
             //Время отправки данных в базу данных, в секундах:
-            TimeUnit.SECONDS.sleep(10);
+            //TimeUnit.SECONDS.sleep(10);
             var expected = "APPROVED";
             var creditRequestInfo = getCreditRequestInfo();
             var orderInfo = getOrderInfo();
@@ -86,7 +86,7 @@ public class TourPurchaseTest {
     public class InvalidCard {
 
         @Test
-        @SneakyThrows
+        //@SneakyThrows
         @DisplayName("Покупка не валидной картой")
         public void shouldPaymentInvalidCard() {
             var purchasePage = new PurchasePage();
@@ -94,7 +94,7 @@ public class TourPurchaseTest {
             var info = getDeclinedCard();
             purchasePage.sendingData(info);
             //Время отправки данных в базу данных, в секундах:
-            TimeUnit.SECONDS.sleep(10);
+            //TimeUnit.SECONDS.sleep(10);
             var expected = "DECLINED";
             var paymentInfo = getPaymentInfo();
             var orderInfo = getOrderInfo();
@@ -107,7 +107,7 @@ public class TourPurchaseTest {
         }
 
         @Test
-        @SneakyThrows
+        //@SneakyThrows
         @DisplayName("Получение кредита на покупку по не валидной карте")
         public void shouldCreditInvalidCard() {
             var purchasePage = new PurchasePage();
@@ -115,7 +115,7 @@ public class TourPurchaseTest {
             var info = getDeclinedCard();
             purchasePage.sendingData(info);
             //Время отправки данных в базу данных, в секундах:
-            TimeUnit.SECONDS.sleep(10);
+            //TimeUnit.SECONDS.sleep(10);
             var expected = "DECLINED";
             var creditRequestInfo = getCreditRequestInfo();
             var orderInfo = getOrderInfo();

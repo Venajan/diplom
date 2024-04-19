@@ -1,6 +1,5 @@
 # Дипломный проект профессии «Тестировщик»
 * ## Процедура запуска SUT, авто-тестов и генерация отчетов:
-* В файле *application.properties* удалить строку 3 - spring.datasource.url=jdbc:mysql://localhost:3306/app (По умолчанию указано подключение к MySQL)
 
 * ### Подключение SUT:
 1. Запустить Docker Desktop
@@ -10,10 +9,16 @@
    `docker-compose up -d`
 4. Во втором терминале запустить приложение:
 
-   `java -jar .\artifacts\aqa-shop.jar`
+   * ### Для MySQL:
+   `java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/base_mysql" -jar artifacts/aqa-shop.jar`
+   * ### Для Postgres:
+   `java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/base_postgresql" -jar artifacts/aqa-shop.jar`
 5. В третьем терминале запустить тесты:
 
-   `./gradlew clean test allureReport -Dheadless=true`
+   * ### Для MySQL:
+   `./gradlew clean test "-Ddatasource.url=jdbc:mysql://localhost:3306/base_mysql"`
+   * ### Для Postgres:
+   `./gradlew clean test "-Ddatasource.url=postgresql://localhost:5432/base_postgresql"`
 6. Создать отчёт Allure и открыть в браузере
 
    `./gradlew allureServe`

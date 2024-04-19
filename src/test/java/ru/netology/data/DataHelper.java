@@ -9,20 +9,20 @@ import java.sql.DriverManager;
 public class DataHelper {
     private static final String datasource = System.getProperty("datasource");
 
-    @SneakyThrows
-    public static void databaseCleanUp() {
-        var runner = new QueryRunner();
-        var deleteFromOrder = "DELETE FROM order_entity;";
-        var deleteFromCredit = "DELETE FROM credit_request_entity;";
-        var deleteFromPayment = "DELETE FROM payment_entity;";
+    //@SneakyThrows
+    //public static void databaseCleanUp() {
+    //    var runner = new QueryRunner();
+    //    var deleteFromOrder = "DELETE FROM order_entity;";
+    //    var deleteFromCredit = "DELETE FROM credit_request_entity;";
+    //    var deleteFromPayment = "DELETE FROM payment_entity;";
 
-        try (var connection = DriverManager.getConnection(
-                datasource, "adm", "9mRE")) {
-            runner.update(connection, deleteFromOrder);
-            runner.update(connection, deleteFromCredit);
-            runner.update(connection, deleteFromPayment);
-        }
-    }
+    //    try (var connection = DriverManager.getConnection(
+    //            datasource, "adm", "9mRE")) {
+    //        runner.update(connection, deleteFromOrder);
+    //        runner.update(connection, deleteFromCredit);
+    //        runner.update(connection, deleteFromPayment);
+    //    }
+    //}
 
     @SneakyThrows
     public static CreditRequestEntityInfo getCreditRequestInfo() {
