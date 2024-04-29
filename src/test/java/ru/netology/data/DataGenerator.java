@@ -88,6 +88,35 @@ public class DataGenerator {
         return firstNumber + secondNumber;
     }
 
+    @Value
+    public static class CardInfo {
+        String numberCard;
+        String month;
+        String year;
+        String owner;
+        String cvc;
+    }
+
+    public static CardInfo getCardWithEmptyCardNumberField() {
+        return new CardInfo(" ", getValidMonth(), getValidYear(), getOwner(), getCVC());
+    }
+
+    public static CardInfo getCardWithEmptyMonthField() {
+        return new CardInfo(validCard, " ", getValidYear(), getOwner(), getCVC());
+    }
+
+    public static CardInfo getCardWithEmptyYearField() {
+        return new CardInfo(validCard, getValidMonth(), " ", getOwner(), getCVC());
+    }
+
+    public static CardInfo getCardWithEmptyOwnerField() {
+        return new CardInfo(validCard, getValidMonth(), getValidYear(), " ", getCVC());
+    }
+
+    public static CardInfo getCardWithEmptyCVCField() {
+        return new CardInfo(validCard, getValidMonth(), getValidYear(), getOwner()," ");
+    }
+
     public static CardInfo getApprovedCard() {
         return new CardInfo(validCard, getValidMonth(), getValidYear(), getOwner(), getCVC());
     }
@@ -137,14 +166,5 @@ public class DataGenerator {
 
     public static CardInfo getCardWithIncompleteCVC() {
         return new CardInfo(validCard, getValidMonth(), getValidYear(), getOwner(), getNumbers());
-    }
-
-    @Value
-    public static class CardInfo {
-        private String numberCard;
-        private String month;
-        private String year;
-        private String owner;
-        private String cvc;
     }
 }
