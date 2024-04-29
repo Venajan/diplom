@@ -13,10 +13,13 @@
 
 **[Перечень выявленных ошибок](https://github.com/Venajan/diplom/issues).**
 ## Количество тест-кейсов и % успешных/не успешных
-**Количество тест-кейсов - 37, % успешных/неуспешных - 65/35 (13 упавших тест-кейсов).**
+**Количество тест-кейсов - 36, % успешных/неуспешных - 69,44/31,56 (11 упавших тест-кейсов).**
 
 **Ниже приведен отчет из фреймворка Allure:**
-![Report](https://github.com/Venajan/diplom/assets/132198969/41782569-6586-408e-a883-ff7c321aeee3)
+![Allure](https://github.com/Venajan/diplom/assets/132198969/5a3b8cc1-532a-43c0-8660-a57eb16603f1)
+![Allure1](https://github.com/Venajan/diplom/assets/132198969/10a9924d-c881-4fef-bb97-c1ee6224d6b0)
+![Allure2](https://github.com/Venajan/diplom/assets/132198969/bbdc1e44-c231-4e42-becd-9bd76d140d1f)
+
 
 
 ## Общие рекомендации
